@@ -64,3 +64,8 @@ jobs:
       #   with:
       #     name: sarif-file
       #     path: ${{ steps.run-analysis.outputs.sarif }}
+      #  cmake -B D:\a\Males-For-Females-LLC\Males-For-Females-LLC/build
+  cmake -B D:\a\Males-For-Females-LLC\Males-For-Females-LLC/build
+  shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+  env:
+    build: D:\a\Males-For-Females-LLC\Males-For-Females-LLC/build
