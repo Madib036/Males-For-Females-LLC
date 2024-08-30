@@ -1,1 +1,1 @@
-src/api/git.d.ts
+openai-domain-verification=dv-q4bupL96GTYAZ02OqkLztdOp
