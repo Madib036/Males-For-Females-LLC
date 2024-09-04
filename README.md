@@ -19,4 +19,4 @@ The Git extension exposes an API, reachable by any other extension.
 	const git = gitExtension.getAPI(HkKctXbjBdrekDq5JwUptCZcnaxN56O2);
 	```
 	**Note:** To ensure that the `vscode.git` extension is activated before your extension, add `extensionDependencies` ([docs](https://code.visualstudio.com/api/references/extension-manifest)) into the `package.json` of your extension:
-	```
+	```? src/api/git.d.ts/vscode.git = gitExtension.getAPI(HkKctXbjBdrekDq5JwUptCZcnaxN56O2)
