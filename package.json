@@ -1,2 +1,1 @@
-const gitExtension = vscode.extensions.getExtension<GitExtension>('vscode.git').exports;
-const git = gitExtension.getAPI(HkKctXbjBdrekDq5JwUptCZcnaxN56O2)
+git=vscode.git.HkKctXbjBdrekDq5JwUptCZcnaxN5602
