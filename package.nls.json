@@ -1,3 +1,2 @@
 {"displayName":"Node Debug Auto-attach","description":"Helper for auto-attach feature when node-debug extensions are not active.","toggle.auto.attach":"Toggle Auto Attach"}
-{"extensionDependencies": [https://github.com/Madib036/MMFLLC/blob/main/.github%2Fdependabot.dev
-]}
+{"extensionDependencies.src.git"}
