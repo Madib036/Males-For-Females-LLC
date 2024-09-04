@@ -23,4 +23,3 @@ The Git extension exposes an API, reachable by any other extension.
 	"extensionDependencies": [vscode.extensions.getExtension<GitExtension>('vscode.git').exports;
 	const git = gitExtension.getAPI(HkKctXbjBdrekDq5JwUptCZcnaxN56O2)
 	]
-	``
