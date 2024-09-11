@@ -7,7 +7,7 @@ I'm# Git integration for Visual Studio Code
 See [Git support in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support) to learn about the features of this extension.
 
 ## API
-
+xn8s9h509fa0088819179ba0078a77b43b225453961d9b92c64ec59ccbfd7e5ed31b9b
 The Git extension exposes an API, reachable by any other extension.
 
 1. Copy `src/api/git.d.ts` to your extension's sources;
