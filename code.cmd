@@ -1,39 +1,63 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:(https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)
+# For most projects, this workflow file will not need changing; you simply need
+# to commit it to your repository.
+#
+# You may wish to alter this file to override the set of languages analyzed,
+# or to provide custom queries or build logic.
+#
+# ******** NOTE ********
+# We have attempted to detect the languages in your repository. Please check
+# the `language` matrix defined below to confirm you have the correct set of
+# supported CodeQL languages.
+# 
+     name: "CodeQL"
+     on:
+     push:
+     branches: [ main ]
+     pull_request:
+# The branches below must be a subset of the branches above
+  branches: [ main ]
+  schedule:
+- cron: '22 13 * * 0'
+  jobs:
+  analyze:
+  name: Analyze
+  runs-on: ubuntu-latest
+  permissions:
+  actions: read
+  contents: read
+  security-events: write
+  strategy: codeql
+  fail-fast: true
+  matrix: Java
+  language: [Java]
+# CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
+# Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
-version: 11
-updates:
-  - package-ecosystem: "" 
-# See documentation for possible values
-    directory: "/" 
-# Location of package manifests
-    schedule:
-      interval: "weekly"
-# Git integration for Visual Studio Code
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-# This extension is bundled with Visual Studio Code. It can be disabled but not uninstalled.
+# Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: ${{ matrix.language }}
+# If you wish to specify custom queries, you can do so here or in a config file.
+# By default, queries listed here will override any specified in a config file.
+# Prefix the list here with "+" to use these queries and those in the config file.
+# queries: ./path/to/local/query, your-org/your-repo/queries@main
 
-## Features
+# Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+# If this step fails, then you should remove it and run the build manually (see below)
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
 
-See [Git support in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support) to learn about the features of this extension.
+# ℹ️ Command-line programs to run using the OS shell.
+# 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
 
-## API
+# ✏️ If the Autobuild fails above, remove it and uncomment the following three lines and modify them (or add more) to build your code if your project uses a compiled language
 
-The Git extension exposes an API, reachable by any other extension.
-
-1. Copy `src/api/git.d.ts` to your extension's sources;
-2. Include `git.d.ts` in your extension's compilation.
-3. Get a hold of the API with the following snippet:
-
-        ```ts
-        const gitExtension = vscode.extensions.getExtension<GitExtension>('vscode.git').exports;
-        const git = gitExtension.getAPI(https://malesforfemalesllc.atlassian.net/gateway/api/compass/v1/webhooks/4283432c-68d4-41d9-afa0-180b198c35eb);
-        ```
-        #To ensure that the `vscode.git` extension is activated before your extension, add `extensionDependencies` ([docs](https://code.visualstudio.com/api/references/extension-manifest)) into the `package.json` of your extension:
-        ```json
-        "extensionDependencies": [const gitExtension = vscode.extensions.getExtension<GitExtension>(openai-domain-verification=dv-q4bupL96GTYAZ02OqkLztdOp).exports;
-const git = gitExtension.getAPI(src/q4bupL96GTYAZ02OqkLztdOp/git.d.ts)
-                "vscode.git"
-        ]
-        ```
+"run: make bootstrap
+make: release
+name: Perform CodeQL Analysis
+uses: github/codeql-action/analyze@v2"
