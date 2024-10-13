@@ -1,149 +1,78 @@
-# Im a Git integration for Visual Studio Code
+# GitHub Codespaces ♥️ React
 
-         **Notice:** 
+Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
 
-# This extension is bundled with Visual Studio Code. It can be disabled but not uninstalled.
+You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
 
-## Features
+Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
 
-# See [Git support in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support) to learn about the features of this extension.
+This project was bootstrapped for you with [Create React App](https://github.com/facebook/create-react-app).
 
-## API
+## Available Scripts
 
-         	**Note:** 
+In the project directory, you can run:
 
-# To ensure that the `vscode.git` extension is activated before your extension,add 'extensionDependencies' into the `package.json` of your extension
- 
-     "((https://code.visualstudio.com/api/references/extension-manifest))"
+### `npm start`
 
-    "((src/api/git.d.ts/vscode.git =gitExtension.getAPI(HkKctXbjBdrekDq5JwUptCZcnaxN56O2))"
-   
-# Git integration for Visual Studio Code
+We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
 
-    This extension is bundled with Visual Studio Code. It can be disabled but not uninstalled.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
 
-## Features
+The page will reload automatically when you make changes.\
+You may also see any lint errors in the console.
 
-# See [Git support in VS Code]to learn about the features of this extension.
-(https://code.visualstudio.com/docs/editor/versioncontrol#_git-support)
+### `npm test`
 
-## API
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-# The Git extension exposes an API, reachable by any other extension.
+### `npm run build`
 
-    1. Copy `src/api/git.d.ts` to your extension's sources.
-    2. Include `git.d.ts` in your extension's compilation.
-    3. Get a hold of the API with the followingsnippet[extension.git]
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-    Extension=('vscode.git')
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-# export into the `package.json` of your extension
-# [gitExtension]=vscode.extensions:git=gitExtension.getAPI
-(https://code.visualstudio.com/api/references/extension-manifest)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-getExtension<GitExtension>(openai-domain-verification=dv-q4bupL96GTYAZ02OqkLztdOp)exports to:
-"git=gitExtension.getAPI(src/q4bupL96GTYAZ02OqkLztdOp/git.d.ts)"
+### `npm run eject`
 
-# Git integration for Visual Studio Code
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-# This extension is bundled with Visual Studio Code. It can be disabled but not uninstalled.
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Features
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-# See [Git support in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support) to learn about the features of this extension.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## API
+## Learn More
 
-# The Git extension exposes an API, reachable by any other extension.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-1. Copy `src/api/git.d.ts` to your extension's sources;
-2. Include `git.d.ts` in your extension's compilation.
-3. Get a hold of the API with the following snippet:
+### Code Splitting
 
-        ```ts
-        const gitExtension = vscode.extensions.getExtension<GitExtension>('vscode.git').exports;
-        const git = gitExtension.getAPI(https://malesforfemalesllc.atlassian.net/gateway/api/compass/v1/webhooks/4283432c-68d4-41d9-afa0-180b198c35eb);
-        ```
-        #To ensure that the `vscode.git` extension is activated before your extension, add `extensionDependencies` ([docs](https://code.visualstudio.com/api/references/extension-manifest)) into the `package.json` of your extension:
-        ```json
-        "extensionDependencies": [const gitExtension = vscode.extensions.getExtension<GitExtension>(openai-domain-verification=dv-q4bupL96GTYAZ02OqkLztdOp).exports;const git = gitExtension.getAPI(src/q4bupL96GTYAZ02OqkLztdOp/git.d.ts)
-                "vscode.git"
-        ]
-        ```"
-        ]
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
+### Analyzing the Bundle Size
 
-{# For most projects, this workflow file will not need changing; you simply need
-# to commit it to your repository.
-#
-# You may wish to alter this file to override the set of languages analyzed,
-# or to provide custom queries or build logic.
-#
-# ******** NOTE ********
-# We have attempted to detect the languages in your repository. Please check
-# the `language` matrix defined below to confirm you have the correct set of
-# supported CodeQL languages.
-#
-name: "CodeQL"
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ main ]
-  schedule:
-    - cron: '22 13 * * 0'
+### Making a Progressive Web App
 
-jobs:
-  analyze:
-    name: Analyze
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-    strategy:
-      fail-fast: true
-      matrix:
-        language: [  ]
-        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
-        # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
+### Advanced Configuration
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-    # Initializes the CodeQL tools for scanning.
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
-      with:
-        languages: ${{ matrix.language }}
-        # If you wish to specify custom queries, you can do so here or in a config file.
-        # By default, queries listed here will override any specified in a config file.
-        # Prefix the list here with "+" to use these queries and those in the config file.
-        # queries: ./path/to/local/query, your-org/your-repo/queries@main
+### Deployment
 
-    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-    # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-    # ℹ️ Command-line programs to run using the OS shell.
-    # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
+### `npm run build` fails to minify
 
-    # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
-    #    and modify them (or add more) to build your code if your project
-    #    uses a compiled language
-
-    #- run: |
-    #   make bootstrap
-    #   make release
-
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2}
-
-        `````
-  
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
