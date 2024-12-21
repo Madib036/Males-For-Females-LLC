@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This was a public repository for discussions relating to Open Source Program Offices on GitHub. We archived the repository in April 2024 as it did not get sufficient activity to keep open.
+This was a public repository for discussions relating to Open Source Program Offices on GitHub.
 # Primer Primitives
 
 This repo contains values for color, spacing, and typography primitives for use with [Primer][primer], GitHub's design system.
