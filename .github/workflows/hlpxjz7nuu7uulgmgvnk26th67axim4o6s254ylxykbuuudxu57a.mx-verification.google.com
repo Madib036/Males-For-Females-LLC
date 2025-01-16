@@ -11,7 +11,7 @@
 #
 name: "CodeQL"
 
-on:
+on: #git clone git@bitbucket.org:madib0361/malesforfemalesllc.link.git
   push:
     branches: [ main ]
   pull_request:
@@ -70,14 +70,14 @@ name: Perform CodeQL Analysis
 uses: github/codeql-action/analyze@v 2
 name: "CodeQL"
 on:
-  push:
+  push:git clone git@bitbucket.org:madib0361/malesforfemalesllc.link.git
     branches: [ main ]
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
   schedule:
     cron: '22 13 * * 0'
-    jobs:
+    jobs: git clone git@bitbucket.org:madib0361/malesforfemalesllc.link.git
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
