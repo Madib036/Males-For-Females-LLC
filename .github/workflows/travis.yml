@@ -1,7 +1,7 @@
-before_install:
-  - sudo apt-get -y install libxml2-dev
+before_install
+sudo apt-get -y install libxml2-dev
 addons:
-  apt:
+apt:
 update: true 
 !/bin/sh
 set -ex
