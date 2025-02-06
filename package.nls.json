@@ -1,4 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
+{# This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
@@ -199,4 +199,4 @@ jobs:
         echo ${{ env.ROUTE }}
         echo "==================================================================================="
         echo
-        echo "Your app can be taken down with: \"oc delete all --selector='${{ env.SELECTOR }}'\""
+        echo "Your app can be taken down with: \"oc delete all --selector='${{ env.SELECTOR }}'\""}
