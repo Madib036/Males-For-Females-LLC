@@ -1,23 +1,47 @@
-name: Demo Service
-id: 'ari:cloud:compass:e572e87c-6d12-46e2-a3a4-a7a3ce38ba7e:component/8d56d674-d8cc-412b-9c07-ba4af86b8bb4/fffe3b84-4228-413f-b7cd-23803a78aaf1'
-description: This is a system generated service that creates the demo requests for the IT service management template product tours
-configVersion: 1
-typeId: SERVICE
-ownerId: 'ari:cloud:identity::team/89b3922c-85e2-49c2-a4c7-2dd928dbdf23'
-fields:
-  lifecycle: Active
-  tier: 4
-links:
-  - name: ''
-    type: REPOSITORY
-    url: 'https://github.com/Males-For-Females-LLC'
-relationships: {}
-labels:
-  - synced-with-jsm
-customFields:
-  - name: Webhooks
-    type: text
-    value: null
-
-# Learn more about formatting compass.yml:
-# https://go.atlassian.com/compass-yml-format
+{
+  "name": "@primer/primitives",
+  "version": "4.3.2",
+  "description": "Typography, spacing, and color primitives for Primer design system",
+  "files": ["dist"],
+  "main": "dist/js/index.js",
+  "types": "dist/js/index.d.ts",
+  "repository": "https://github.com/primer/primitives",
+  "keywords": [
+    "primitives",
+    "colors",
+    "spacing",
+    "typography",
+    "variables",
+    "design-system"
+  ],
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/primer/primitives/issues"
+  },
+  "homepage": "https://github.com/primer/primitives#readme",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "ts-node ./script/build.ts && tsc",
+    "prepack": "yarn build",
+    "watch": "ls data/**/*.scss script/**/*.ts | entr -s 'yarn build'",
+    "release": "yarn build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.3.0",
+    "@changesets/cli": "^2.11.2",
+    "@types/chalk": "^2.2.0",
+    "@types/lodash": "^4.14.163",
+    "@types/mkdirp": "^1.0.1",
+    "@types/node": "^14.0.26",
+    "camelcase-keys": "^6.2.2",
+    "chalk": "^4.1.0",
+    "deep-shape-equals": "^0.1.2",
+    "lodash": "^4.17.20",
+    "mkdirp": "^1.0.4",
+    "node-sass": "^4.14.1",
+    "sass-extract": "^2.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.7.2"
+  }
+}
