@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Checkout Source Branch
         uses: actions/checkout@v3
-        with: males-for-females
-          ref: source-branch
+        with: malesforfemalesllc
+        ref: source-branch
 
       - name: Configure Git
         run: |
