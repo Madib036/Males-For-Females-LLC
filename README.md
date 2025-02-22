@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4786683a-bf37-44b1-b6e7-3b21b9656d8f/deploy-status)](https://app.netlify.com/sites/mffllc/deploys)
 # OSPO Discussions
 
 ![Octocats Collaborating](https://octodex.github.com/images/collabocats.jpg)
