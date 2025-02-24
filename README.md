@@ -1,4 +1,3 @@
-
 # OSPO Discussions
 
 ![Octocats Collaborating](https://octodex.github.com/images/collabocats.jpg)
@@ -6,6 +5,7 @@
 ## Introduction
 
 This was a public repository for discussions relating to Open Source Program Offices on GitHub.
+
 # Primer Primitives
 
 This repo contains values for color, spacing, and typography primitives for use with [Primer][primer], GitHub's design system.
@@ -14,9 +14,8 @@ This repo contains values for color, spacing, and typography primitives for use 
 
 This repository is distributed on [npm][npm]. After [installing npm][install-npm], you can install `@primer/primitives` with this command.
 
-```sh
 $ npm install --save @primer/primitives
-```
+
 
 ## Usage
 
@@ -34,6 +33,35 @@ Primitive data is served in several formats from the `dist/` folder:
 [npm]: https://www.npmjs.com/
 [install-npm]: https://docs.npmjs.com/getting-started/installing-node
 [scss]: https://sass-lang.com/
+
+# Git integration for Visual Studio Code
+
+**Notice:** This extension is bundled with Visual Studio Code. It can be disabled but not uninstalled.
+
+## Features
+
+See [Git support in VS Code](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support) to learn about the features of this extension.
+
+## API
+
+The Git extension exposes an API, reachable by any other extension.
+
+1. Copy `src/api/git.d.ts` to your extension's sources;
+2. Include `git.d.ts` in your extension's compilation.
+3. Get a hold of the API with the following snippet:
+
+	```ts
+	const gitExtension = vscode.extensions.getExtension<GitExtension>('vscode.git').exports;
+	const git = gitExtension.getAPI(1);
+	```
+	**Note:** To ensure that the `vscode.git` extension is activated before your extension, add `extensionDependencies` ([docs](https://code.visualstudio.com/api/references/extension-manifest)) into the `package.json` of your extension:
+	```json
+	"extensionDependencies": [
+		"vscode.git"
+	]
+	```
+
+
 
 # GitHub Codespaces ♥️ React
 
