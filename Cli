@@ -1,1 +1,1 @@
-gh repo clone Madib036/Males-For-Females-LLC
+./configure make -j4
