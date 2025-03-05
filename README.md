@@ -52,6 +52,7 @@ The Git extension exposes an API, reachable by any other extension.
 4. 
 # 
 hash enable command `gcloud config auth login project id <decisive-force-297918.servicegcloudaccount.partneradvantageid.[001Kf000014BIGQIA4>``(<GitExtension=vscode>)[vs.studio.exe]`
+
 5 . 
 run .json file partitions in the workflows folder github and install web browser vsstudio.exe file
 
