@@ -49,7 +49,7 @@ The Git extension exposes an API, reachable by any other extension.
 1. Copy `src/api/git.d.ts` to your extension's sources;
 2. Include `git.d.ts` in your extension's compilation.
 3. Get a hold of the API with the following snippet: 
-ts const gitExtension = vscode.extensions.getExtension<GitExtension>('vscode.git').exports;
+`ts const gitExtension = vscode.extensions.getExtensi <GitExtension ('vscode.git')`
 
 # Welcome to your organization's demo respository
 
@@ -61,7 +61,7 @@ The project is an initiative of the OpenSSF (openssf.org) and is developed at ht
 
 # For more information about SLSA and how it improves the supply-chain, visit slsa.dev.
 
-    name: SLSA generic generator
+    `name: SLSA generic generator
      on:
     workflow_dispatch:
     release:
@@ -72,12 +72,12 @@ The project is an initiative of the OpenSSF (openssf.org) and is developed at ht
     outputs:
     digests: ${{ steps.hash.outputs.digests }}
      steps:
-    uses: actions/checkout@v3
+    uses: actions/checkout@v3`
 
 # Step 1: Build your artifacts.
 
-     name: Build artifacts
-        run: |
+     `name: Build artifacts
+        run: |`
 
 These are some amazing artifacts.
 
@@ -86,37 +86,37 @@ These are some amazing artifacts.
 
 # ProcessStep 2: Add a step to generate the provenance subjects as shown below. Update the sha256 sum arguments to include all binaries that you generate provenance for.
 
-      name: Generate subject for provenance
+      `name: Generate subject for provenance
         id: hash
         run: |
-          set -euo pipefail
+          set -euo pipefail`
 
 List the artifacts the provenance will refer to.
           
-    files=$(ls artifact*)
+    `files=$(ls artifact*)`
 
 Generate the subjects (base64 encoded).
       
-    echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
+    `echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
      provenance:
     needs: [build]
     permissions:
-      actions: read   
+      actions: read`
 
 To read the workflow path.
       
-    id-token: write 
+    `id-token: write`
 
 To sign the provenance.
     
-    contents: write 
+    `contents: write`
 
 To add assets to a release.
     
-    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
+    `uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
     with:
       base64-subjects: "${{ needs.build.outputs.digests }}"
-      upload-assets: true 
+      upload-assets: true `
 
 # Optional: Upload to a new release
 
@@ -167,9 +167,7 @@ The repo is split into a number of packages -
 ## Dapp developers
 
 The actual in-depth technical breakdown is given in the next section for any dapp developer wishing to work with the raw objects injected into the window. However, convenience wrappers are provided that allows for any dapp to use this extension (or any other extension that conforms to the interface) without having to manage any additional info.
-
 The documentation for Dapp development is available [in the polkadot-js doc](https://polkadot.js.org/docs/extension).
-
 This approach is used to support multiple external signers in for instance [apps](https://github.com/polkadot-js/apps/). You can read more about the convenience wrapper [@polkadot/extension-dapp](packages/extension-dapp/) along with usage samples.
 
 ## API interface
