@@ -27,3 +27,4 @@ addons:
   apt:
 update: true 
 !/bin/sh
+Set-ExecutionPolicy Bypass -Scope Process
