@@ -49,7 +49,8 @@ The Git extension exposes an API, reachable by any other extension.
 1. Copy `src/api/git.d.ts` to your extension's sources;
 2. Include `git.d.ts` in your extension's compilation.
 3. Get a hold of the API with the following snippet: 
-`ts const gitExtension = vscode.extensions.getExtensi <GitExtension ('vscode.git')`
+`$ bash sudo gcloud auth login project id <decisive-force-297918><service gcloud partneradvantage account id [001Kf000014BIGQIA4]`
+GitExtension = vscode.extensions.GitExtension (dl install 'vs.studio' <web browser extension> [powershell gcloud])`
 
 # Welcome to your organization's demo respository
 
