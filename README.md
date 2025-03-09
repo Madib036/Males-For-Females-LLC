@@ -50,8 +50,8 @@ The Git extension exposes an API, reachable by any other extension.
 2. Include `git.d.ts` in your extension's compilation.
 3. Get a hold of the API with the following snippet: 
 4. 
-# hash enable command 
-config auth login project id <decisive-force-297918.servicegcloudaccount.partneradvantageid[001Kf000014BIGQIA4]>
+run command 
+`<gcloud auth login project id decisive-force-297918.[001Kf000014BIGQIA4]>`
 
 5 . 
 run .html root file in the workflows folder github and install web browser vs.exe file
@@ -66,7 +66,7 @@ The project is an initiative of the OpenSSF (openssf.org) and is developed at ht
 
 # For more information about SLSA and how it improves the supply-chain, visit slsa.dev.
 
-    `name: SLSA generic generator
+ name: SLSA generic generator
      on:
     workflow_dispatch:
     release:
@@ -77,51 +77,51 @@ The project is an initiative of the OpenSSF (openssf.org) and is developed at ht
     outputs:
     digests: ${{ steps.hash.outputs.digests }}
      steps:
-    uses: actions/checkout@v3`
+    uses: actions/checkout@v3
 
 # Step 1: Build your artifacts.
 
-     `name: Build artifacts
-        run: |`
+name: Build artifacts
+        run: |
 
 These are some amazing artifacts.
 
-    echo "artifact1" > artifact1
+echo "artifact1" > artifact1
     echo "artifact2" > artifact2
 
 # ProcessStep 2: Add a step to generate the provenance subjects as shown below. Update the sha256 sum arguments to include all binaries that you generate provenance for.
 
-      `name: Generate subject for provenance
+name: Generate subject for provenance
         id: hash
         run: |
-          set -euo pipefail`
+          set -euo pipefail
 
 List the artifacts the provenance will refer to.
           
-    `files=$(ls artifact*)`
+files=$(ls artifact*)
 
 Generate the subjects (base64 encoded).
       
-    `echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
+echo "hashes=$(sha256sum $files | base64 -w0)" >> "${GITHUB_OUTPUT}"
      provenance:
     needs: [build]
     permissions:
-      actions: read`
+      actions: read
 
 To read the workflow path.
       
-    `id-token: write`
+id-token: write
 
 To sign the provenance.
     
-    `contents: write`
+contents: write
 
 To add assets to a release.
     
-    `uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
+uses: slsa-framework/slsa-github-generator/.github/workflows/generator_generic_slsa3.yml@v1.4.0
     with:
       base64-subjects: "${{ needs.build.outputs.digests }}"
-      upload-assets: true `
+      upload-assets: true
 
 # Optional: Upload to a new release
 
@@ -218,7 +218,7 @@ In the project directory, you can run:
 
 We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
 
-Runs the app in the development mode.\
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
 
 The page will reload automatically when you make changes.\
@@ -546,16 +546,7 @@ More Developer Tools...`. This step will install `clang`, `clang++`, and
 #### Building Node.js
 
 If the path to your build directory contains a space, the build will likely
-fail.
-
-To build Node.js:
-
-```bash
-./configure
-make -j4
-```
-
-We can speed up the builds by using [Ninja](https://ninja-build.org/). For more
+fail. We can speed up the builds by using [Ninja](https://ninja-build.org/). For more
 information, see
 [Building Node.js with Ninja](doc/contributing/building-node-with-ninja.md).
 
@@ -573,35 +564,30 @@ Running the following script on macOS will add the firewall rules for the
 executable `node` in the `out` directory and the symbolic `node` link in the
 project's root directory.
 
-```bash
-sudo ./tools/macos-firewall.sh
-```
+`bash
+sudo ./tools/macos-firewall.ssh
 
-#### Installing Node.js
+#### Installing Node.js`
 
 To install this version of Node.js into a system directory:
 
-```bash
+bash
 [sudo] make install
-```
+
 
 #### Running tests
 
-To verify the build:
+To verify the build: bash make-test-only
 
-```bash
-make test-only
-```
 
 At this point, you are ready to make code changes and re-run the tests.
 
 If you are running tests before submitting a pull request, use:
 
-```bash
+bash
 make -j4 test
-```
 
-`make -j4 test` does a full check on the codebase, including running linters and
+make -j4 test does a full check on the codebase, including running linters and
 documentation tests.
 
 To run the linter without running tests, use
@@ -612,39 +598,37 @@ To fix auto fixable JavaScript linting errors, use `make lint-js-fix`.
 If you are updating tests and want to run tests in a single test file
 (e.g. `test/parallel/test-stream2-transform.js`):
 
-```bash
+bash
 tools/test.py test/parallel/test-stream2-transform.js
-```
 
 You can execute the entire suite of tests for a given subsystem
 by providing the name of a subsystem:
 
-```bash
+bash
 tools/test.py child-process
-```
 
 You can also execute the tests in a test suite directory
 (such as `test/message`):
 
-```bash
+bash
 tools/test.py test/message
-```
+
 
 If you want to check the other options, please refer to the help by using
 the `--help` option:
 
-```bash
+bash
 tools/test.py --help
-```
+
 
 > Note: On Windows you should use `python3` executable.
 > Example: `python3 tools/test.py test/message`
 
 You can usually run tests directly with node:
 
-```bash
+bash
 ./node test/parallel/test-stream2-transform.js
-```
+
 
 > Info: `./node` points to your local Node.js build.
 
@@ -657,9 +641,9 @@ loopback interface must also have '::1' enabled. For some default installations
 on Ubuntu, that does not seem to be the case. To enable '::1' on the
 loopback interface on Ubuntu:
 
-```bash
+bash
 sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=0
-```
+
 
 You can use
 [node-code-ide-configs](https://github.com/nodejs/node-code-ide-configs)
@@ -670,10 +654,10 @@ to run/debug tests if your IDE configs are present.
 It's good practice to ensure any code you add or change is covered by tests.
 You can do so by running the test suite with coverage enabled:
 
-```bash
+bash
 ./configure --coverage
 make coverage
-```
+
 
 A detailed coverage report will be written to `coverage/index.html` for
 JavaScript coverage and to `coverage/cxxcoverage.html` for C++ coverage.
@@ -682,34 +666,32 @@ If you only want to run the JavaScript tests then you do not need to run
 the first command (`./configure --coverage`). Run `make coverage-run-js`,
 to execute JavaScript tests independently of the C++ test suite:
 
-```bash
+bash
 make coverage-run-js
-```
 
 If you are updating tests and want to collect coverage for a single test file
 (e.g. `test/parallel/test-stream2-transform.js`):
 
-```bash
+bash
 make coverage-clean
 NODE_V8_COVERAGE=coverage/tmp tools/test.py test/parallel/test-stream2-transform.js
 make coverage-report-js
-```
+
 
 You can collect coverage for the entire suite of tests for a given subsystem
 by providing the name of a subsystem:
 
-```bash
+bash
 make coverage-clean
 NODE_V8_COVERAGE=coverage/tmp tools/test.py --mode=release child-process
 make coverage-report-js
-```
+
 
 The `make coverage` command downloads some tools to the project root directory.
 To clean up after generating the coverage reports:
 
-```bash
+bash
 make coverage-clean
-```
 
 #### Building the documentation
 
@@ -717,27 +699,26 @@ To build the documentation:
 
 This will build Node.js first (if necessary) and then use it to build the docs:
 
-```bash
+bash
 make doc
-```
+
 
 If you have an existing Node.js build, you can build just the docs with:
 
-```bash
+bash
 NODE=/path/to/node make doc-only
-```
 
 To read the man page:
 
-```bash
+bash
 man doc/node.1
-```
+
 
 If you prefer to read the full documentation in a browser, run the following.
 
-```bash
+bash
 make docserve
-```
+
 
 This will spin up a static file server and provide a URL to where you may browse
 the documentation locally.
@@ -745,24 +726,24 @@ the documentation locally.
 If you're comfortable viewing the documentation using the program your operating
 system has associated with the default web browser, run the following.
 
-```bash
+bash
 make docopen
-```
+
 
 This will open a file URL to a one-page version of all the browsable HTML
 documents using the default browser.
 
-```bash
+bash
 make docclean
-```
+
 
 This will clean previously built doc.
 
 To test if Node.js was built correctly:
 
-```bash
+bash
 ./node -e "console.log('Hello from Node.js ' + process.version)"
-```
+
 
 #### Building a debug build
 
@@ -770,10 +751,9 @@ If you run into an issue where the information provided by the JS stack trace
 is not enough, or if you suspect the error happens outside of the JS VM, you
 can try to build a debug enabled binary:
 
-```bash
+bash
 ./configure --debug
 make -j4
-```
 
 `make` with `./configure --debug` generates two binaries, the regular release
 one in `out/Release/node` and a debug binary in `out/Debug/node`, only the
@@ -782,10 +762,10 @@ release version is actually installed when you run `make install`.
 To use the debug build with all the normal dependencies overwrite the release
 version in the install directory:
 
-```bash
+bash
 make install PREFIX=/opt/node-debug/
 cp -a -f out/Debug/node /opt/node-debug/node
-```
+
 
 When using the debug binary, core dumps will be generated in case of crashes.
 These core dumps are useful for debugging when provided with the
@@ -798,10 +778,10 @@ was captured on (i.e. 64-bit `gdb` for `node` built on a 64-bit system, Linux
 
 Example of generating a backtrace from the core dump:
 
-```bash
+bash
 $ gdb /opt/node-debug/node core.node.8.1535359906
 (gdb) backtrace
-```
+
 
 #### Building an ASan build
 
@@ -814,10 +794,10 @@ on Linux, you can try [Docker](https://www.docker.com/products/docker-desktop/)
 The `--debug` is not necessary and will slow down build and testing, but it can
 show clear stacktrace if ASan hits an issue.
 
-```bash
+bash
 ./configure --debug --enable-asan && make -j4
 make test-only
-```
+
 
 #### Speeding up frequent rebuilds when developing
 
@@ -834,12 +814,12 @@ On GNU/Linux:
 Tips: `mold` can speed up the link process, which can't be cached, you may
 need to install the latest version but not the apt version.
 
-```bash
+bash
 sudo apt install ccache mold   # for Debian/Ubuntu, included in most Linux distros
 export CC="ccache gcc"         # add to your .profile
 export CXX="ccache g++"        # add to your .profile
 export LDFLAGS="-fuse-ld=mold" # add to your .profile
-```
+
 
 Refs:
 
@@ -848,11 +828,11 @@ Refs:
 
 On macOS:
 
-```bash
+bash
 brew install ccache            # see https://brew.sh
 export CC="ccache cc"          # add to ~/.zshrc or other shell config file
 export CXX="ccache c++"        # add to ~/.zshrc or other shell config file
-```
+
 
 This will allow for near-instantaneous rebuilds when switching branches back
 and forth that were built with cache.
@@ -860,9 +840,9 @@ and forth that were built with cache.
 When modifying only the JS layer in `lib`, it is possible to externally load it
 without modifying the executable:
 
-```bash
+bash
 ./configure --node-builtin-modules-path "$(pwd)"
-```
+
 
 The resulting binary won't include any JS files and will try to load them from
 the specified directory. The JS debugger of Visual Studio Code supports this
@@ -893,13 +873,13 @@ You may need disable vcpkg integration if you got link error about symbol
 redefine related to zlib.lib(zlib1.dll), even you never install it by hand,
 as vcpkg is part of CLion and Visual Studio now.
 
-```powershell
+powershell
 # find your vcpkg
 # double check vcpkg install the related file
 vcpkg owns zlib.lib
 vcpkg owns zlib1.dll
 vcpkg integrate remove
-```
+
 
 Refs:
 
@@ -971,13 +951,13 @@ with a supported browser.
 Alternatively, you can use PowerShell. Run those commands from
 an elevated (Administrator) PowerShell terminal:
 
-```powershell
+powershell
 Set-ExecutionPolicy Unrestricted -Force
 iex ((New-Object System.Net.WebClient).DownloadString('https://boxstarter.org/bootstrapper.ps1'))
 get-boxstarter -Force
 Install-BoxstarterPackage https://raw.githubusercontent.com/nodejs/node/HEAD/tools/bootstrap/windows_boxstarter -DisableReboots
 refreshenv
-```
+
 
 The entire installation using Boxstarter will take up approximately 10 GB of
 disk space.
@@ -986,39 +966,39 @@ disk space.
 
 * Remember to first clone the Node.js repository with the Git command
   and head to the directory that Git created; If you haven't already
-  ```powershell
+  powershell
   git clone https://github.com/nodejs/node.git
   cd node
-  ```
+  
 
 > \[!TIP]
 > If you are building from a Windows machine, symlinks are disabled by default, and can be enabled by cloning
 > with the `-c core.symlinks=true` flag.
 >
-> ```powershell
+>powershell
 > git clone -c core.symlinks=true <repository_url>
-> ```
+> 
 
 * If the path to your build directory contains a space or a non-ASCII character,
   the build will likely fail
 
 To start the build process:
 
-```powershell
+powershell
 .\vcbuild
-```
+
 
 To run the tests:
 
-```powershell
+powershell
 .\vcbuild test
-```
+
 
 To test if Node.js was built correctly:
 
-```powershell
+powershell
 Release\node -e "console.log('Hello from Node.js', process.version)"
-```
+
 
 ### Android
 
@@ -1031,10 +1011,10 @@ Be sure you have downloaded and extracted
 [Android NDK](https://developer.android.com/ndk) before in
 a folder. Then run:
 
-```bash
+bash
 ./android-configure <path to the Android NDK> <Android SDK version> <target architecture>
 make -j4
-```
+
 
 The Android SDK version should be at least 24 (Android 7.0) and the target
 architecture supports \[arm, arm64/aarch64, x86, x86\_64].
@@ -1050,15 +1030,13 @@ This is the default option.
 
 #### Unix/macOS
 
-```bash
+bash
 ./configure --with-intl=full-icu
-```
 
 #### Windows
 
-```powershell
+powershell
 .\vcbuild full-icu
-```
 
 ### Trimmed: `small-icu` (English only) support
 
@@ -1068,15 +1046,14 @@ any dependencies to function. You can add full data at runtime.
 
 #### Unix/macOS
 
-```bash
+bash
 ./configure --with-intl=small-icu
-```
+
 
 #### Windows
 
-```powershell
+powershell
 .\vcbuild small-icu
-```
 
 ### Building without Intl support
 
@@ -1085,21 +1062,19 @@ The `Intl` object will not be available, nor some other APIs such as
 
 #### Unix/macOS
 
-```bash
+bash
 ./configure --without-intl
-```
 
 #### Windows
 
-```powershell
+powershell
 .\vcbuild without-intl
-```
+
 
 ### Use existing installed ICU (Unix/macOS only)
 
-```bash
+bash
 pkg-config --modversion icu-i18n && ./configure --with-intl=system-icu
-```
 
 If you are cross-compiling, your `pkg-config` must be able to supply a path
 that works for both your host and target environments.
@@ -1117,23 +1092,20 @@ during configuration if the ICU version is too old.
 
 #### Unix/macOS
 
-From an already-unpacked ICU:
+From an already-unpacked ICU: bash./configure --with-intl=[small-icu,full-icu] --with-icu-source=/path/to/icu
 
-```bash
-./configure --with-intl=[small-icu,full-icu] --with-icu-source=/path/to/icu
-```
 
 From a local ICU tarball:
 
-```bash
+bash
 ./configure --with-intl=[small-icu,full-icu] --with-icu-source=/path/to/icu.tgz
-```
+
 
 From a tarball URL:
 
-```bash
+bash
 ./configure --with-intl=full-icu --with-icu-source=http://url/to/icu.tgz
-```
+
 
 #### Windows
 
@@ -1141,11 +1113,10 @@ First unpack latest ICU to `deps/icu`
 [icu4c-**##.#**-src.tgz](https://icu.unicode.org/download) (or `.zip`)
 as `deps/icu` (You'll have: `deps/icu/source/...`)
 
-```powershell
+powershell
 .\vcbuild full-icu
-```
 
-### Configure OpenSSL appname
+# Configure OpenSSL appname
 
 Node.js can use an OpenSSL configuration file by specifying the environment
 variable `OPENSSL_CONF`, or using the command line option `--openssl-conf`, and
@@ -1154,9 +1125,9 @@ configuration file `openssl.cnf`. Node.js will only read a section that is by
 default named `nodejs_conf`, but this name can be overridden using the following
 configure option:
 
-```bash
+bash
 ./configure --openssl-conf-name=<some_conf_name>
-```
+
 
 ## Building Node.js with FIPS-compliant OpenSSL
 
@@ -1178,18 +1149,18 @@ This command will make `/root/myModule.js` available via
 `require('/root/myModule')` and `./myModule2.js` available via
 `require('myModule2')`.
 
-```bash
+bash
 ./configure --link-module '/root/myModule.js' --link-module './myModule2.js'
-```
+
 
 ### Windows
 
 To make `./myModule.js` available via `require('myModule')` and
 `./myModule2.js` available via `require('myModule2')`:
 
-```powershell
+powershell
 .\vcbuild link-module './myModule.js' link-module './myModule2.js'
-```
+
 
 ## Building to use shared dependencies at runtime
 
