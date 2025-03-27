@@ -1,47 +1,81 @@
 {
-  "name": "@primer/primitives",
-  "version": "4.3.2",
-  "description": "Typography, spacing, and color primitives for Primer design system",
-  "files": ["dist"],
-  "main": "dist/js/index.js",
-  "types": "dist/js/index.d.ts",
-  "repository": "https://github.com/primer/primitives",
+  "name": "react-router-dom",
+  "version": "7.1.5",
+  "description": "Declarative routing for React web applications",
   "keywords": [
-    "primitives",
-    "colors",
-    "spacing",
-    "typography",
-    "variables",
-    "design-system"
+    "react",
+    "router",
+    "route",
+    "routing",
+    "history",
+    "link"
   ],
-  "author": "GitHub, Inc.",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/primer/primitives/issues"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remix-run/react-router",
+    "directory": "packages/react-router-dom"
   },
-  "homepage": "https://github.com/primer/primitives#readme",
-  "scripts": {
-    "prebuild": "rm -rf dist",
-    "build": "ts-node ./script/build.ts && tsc",
-    "prepack": "yarn build",
-    "watch": "ls data/**/*.scss script/**/*.ts | entr -s 'yarn build'",
-    "release": "yarn build && changeset publish"
+  "license": "MIT",
+  "author": "Remix Software <hello@remix.run>",
+  "sideEffects": false,
+  "main": "./dist/main.js",
+  "unpkg": "./dist/umd/react-router-dom.production.min.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "node": {
+        "types": "./dist/index.d.ts",
+        "module-sync": "./dist/index.mjs",
+        "default": "./dist/index.js"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "default": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "wireit": {
+    "build": {
+      "command": "tsup",
+      "files": [
+        "*.ts",
+        "tsconfig.json",
+        "package.json"
+      ],
+      "output": [
+        "dist/**"
+      ]
+    }
+  },
+  "dependencies": {
+    "react-router": "7.1.5"
   },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.3.0",
-    "@changesets/cli": "^2.11.2",
-    "@types/chalk": "^2.2.0",
-    "@types/lodash": "^4.14.163",
-    "@types/mkdirp": "^1.0.1",
-    "@types/node": "^14.0.26",
-    "camelcase-keys": "^6.2.2",
-    "chalk": "^4.1.0",
-    "deep-shape-equals": "^0.1.2",
-    "lodash": "^4.17.20",
-    "mkdirp": "^1.0.4",
-    "node-sass": "^4.14.1",
-    "sass-extract": "^2.1.0",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.7.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.1.6",
+    "wireit": "0.14.9"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "files": [
+    "dist/",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "wireit"
   }
 }
