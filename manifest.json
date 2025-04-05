@@ -1,31 +1,47 @@
 {
-  "author": "polkadot.{js}",
-  "description": "Manage your Polkadot accounts outside of dapps. Injects the accounts and allows signing transactions for a specific account.",
-  "homepage_url": "https://github.com/polkadot-js/extension",
-  "name": "polkadot{.js} extension",
-  "short_name": "polkadot{.js}",
-  "manifest_version": 2,
-  "permissions": ["storage", "tabs"],
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": true
+  "name": "@primer/primitives",
+  "version": "4.3.2",
+  "description": "Typography, spacing, and color primitives for Primer design system",
+  "files": ["dist"],
+  "main": "dist/js/index.js",
+  "types": "dist/js/index.d.ts",
+  "repository": "https://github.com/primer/primitives",
+  "keywords": [
+    "primitives",
+    "colors",
+    "spacing",
+    "typography",
+    "variables",
+    "design-system"
+  ],
+  "author": "GitHub, Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/primer/primitives/issues"
   },
-  "browser_action": {
-    "default_title": "polkadot{.js}",
-    "default_popup": "index.html"
+  "homepage": "https://github.com/primer/primitives#readme",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "ts-node ./script/build.ts && tsc",
+    "prepack": "yarn build",
+    "watch": "ls data/**/*.scss script/**/*.ts | entr -s 'yarn build'",
+    "release": "yarn build && changeset publish"
   },
-  "content_scripts": [{
-    "js": ["content.js"],
-    "matches": ["http://*/*", "https://*/*"],
-    "run_at": "document_start"
-  }],
-  "icons": {
-    "16": "images/icon-16.png",
-    "32": "images/icon-32.png",
-    "48": "images/icon-48.png",
-    "64": "images/icon-64.png",
-    "128": "images/icon-128.png"
-  },
-  "web_accessible_resources": ["page.js"],
-  "content_security_policy": "script-src 'self' blob: 'unsafe-eval' 'wasm-eval'; object-src 'self'"
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.3.0",
+    "@changesets/cli": "^2.11.2",
+    "@types/chalk": "^2.2.0",
+    "@types/lodash": "^4.14.163",
+    "@types/mkdirp": "^1.0.1",
+    "@types/node": "^14.0.26",
+    "camelcase-keys": "^6.2.2",
+    "chalk": "^4.1.0",
+    "deep-shape-equals": "^0.1.2",
+    "lodash": "^4.17.20",
+    "mkdirp": "^1.0.4",
+    "node-sass": "^4.14.1",
+    "sass-extract": "^2.1.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.7.2"
+  }
 }
