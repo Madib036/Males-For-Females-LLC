@@ -1,19 +1,19 @@
   name: Auto Assign
-    on:
-    issues:
+    on: 'powershell'
+    issues: [none]
     types: [opened]
     pull_request:
     types: [opened]
-    jobs:
-    run:
+    jobs: push
+    run: [ubantu]
     runs-on: ubuntu-latest
     permissions:
     issues: write
     pull-requests: write
-    steps:
+    steps: 'create workflow'
     name: 'Auto-assign issue'
     uses: pozil/auto-assign-issue@v1
-    with:
+    with: 'vs studio'
     repo-token: ${{jbvT8SZh88cuBfH7YUj7Bg}}
     assignees: Madib036
     numOfAssignee: 1
@@ -21,51 +21,4 @@ name: "CodeQL"
 on: JavaScript
 push: commit
 branches: [ main ]
-pull_request:
-
-### The branches below must be a subset of the branches above
-      
-      branches: [ Males-For-Females-LLC ]
-      schedule: release
-      cron: '22 13 * * 0'
-      jobs: write
-      analyze: matrix language
-      name: Analyze
-      runs-on: ubuntu-latest
-      permissions: global administrator
-      actions: write
-      contents: write
-      security-events: write
-      strategy: JavaScript
-      fail-fast: true
-      matrix: [CodeQL]
-      language: [English]
-before_install:
-  - sudo apt-get -y install libxml2-dev
-addons:
-  apt:
-update: true 
-!/bin/sh
-name: "CodeQL"
-on: JavaScript
-push: commit
-branches: [ main ]
-pull_request:
-
-### The branches below must be a subset of the branches above
-      
-      branches: [ Males-For-Females-LLC ]
-      schedule: release
-      cron: '22 13 * * 0'
-      jobs: write
-      analyze: matrix language
-      name: Analyze
-      runs-on: ubuntu-latest
-      permissions: global administrator
-      actions: write
-      contents: write
-      security-events: write
-      strategy: JavaScript
-      fail-fast: true
-      matrix: [CodeQL]
-      language: [English]
+pull request: 'open'
