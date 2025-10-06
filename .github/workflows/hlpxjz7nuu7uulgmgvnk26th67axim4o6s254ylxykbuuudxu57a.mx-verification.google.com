@@ -10,8 +10,8 @@
 # supported CodeQL languages.
 #
 name: "CodeQL"
-
-on: #git clone git@bitbucket.org:madib0361/malesforfemalesllc.link.git
+on: "ubantu-latest"
+# git clone git@bitbucket.org:madib0361/malesforfemalesllc.link.git
   push:
     branches: [ main ]
   pull_request:
@@ -70,26 +70,4 @@ name: Perform CodeQL Analysis
 uses: github/codeql-action/analyze@v 2
 name: "CodeQL"
 on:
-  push:git clone git@bitbucket.org:madib0361/malesforfemalesllc.link.git
-    branches: [ main ]
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ main ]
-  schedule:
-    cron: '22 13 * * 0'
-    jobs: git clone git@bitbucket.org:madib0361/malesforfemalesllc.link.git
-  analyze:
-    name: Analyze
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
-      strategy:
-      fail-fast: false
-      matrix:
-      language: [English]
-      name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2https://github.com/Malesforfemalesllc/.github/tree/c63d155dc93d6c7137f2b5cf0a3d39c0960fbac6/git%20remote%20add%20origin%20git%40github.com%3AMadib036/https-github.com/git%40github.com/git%20remote%20add%20origin%20git%40github.com%3AMadib036
-https://aka.ms/codeql-docs/language-support
-matrix.language
+  
