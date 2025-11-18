@@ -37,6 +37,7 @@ To be able to fully test the API, you will also need to:
 
 For any questions or issues, please refer to our [How to get help](https://developers.google.com/pay/api/support) page. 
 
+
 # How to Contribute
 
 We'd love to accept your patches and contributions to this project. There are
