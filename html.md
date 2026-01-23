@@ -1,4 +1,4 @@
-<meta name="base:app_id" content="6972dd8e88e3bac59cf3d478" />
+<meta name="base:app_id6972dd8e88e3bac59cf3d478"content="6972dd8e88e3bac59cf3d478" />
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
