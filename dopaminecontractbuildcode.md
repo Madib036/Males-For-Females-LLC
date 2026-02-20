@@ -1,0 +1,15 @@
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
+
+contract Dopamine is ERC20Votes {
+
+    uint256 public constant MAX_SUPPLY = 1_000_000_000 * 10 ** 18;
+
+    constructor()
+        ERC20("Dopamine", "DOPE")
+        ERC20Permit("Dopamine")
+    {
+        _mint(msg.sender, MAX_SUPPLY);
+    }
+}
