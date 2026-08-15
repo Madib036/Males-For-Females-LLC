@@ -10,6 +10,12 @@ interface CODE_JWE_PAYLOAD {
 const NTL_AUTH_CLIENT_ID = process.env.NTL_AUTH_CLIENT_ID || '';
 
 
+/**
+ * Initiates the OAuth authorization flow using the request's authorization parameters.
+ *
+ * @param req - The request containing OAuth authorization parameters in its URL.
+ * @returns A redirect response to authorization or an OAuth error response when required parameters are missing.
+ */
 export async function handleAuthStart(req: Request): Promise<HandlerResponse>{
 
   const parsedUrl = new URL(req.url);
@@ -70,6 +76,9 @@ export async function handleAuthStart(req: Request): Promise<HandlerResponse>{
 }
 
 
+/**
+ * Serves a browser page that forwards an authorization token and state to the server-side OAuth redirect endpoint.
+ */
 export async function handleClientSideAuthExchange(){
   return {
     statusCode: 200,
@@ -122,6 +131,11 @@ export async function handleClientSideAuthExchange(){
 }
 
 
+/**
+ * Completes the server-side authorization redirect by exchanging the initialization state and token for an authorization code.
+ *
+ * @returns A redirect response containing the authorization code, or an OAuth error response when the request is invalid.
+ */
 export async function handleServerSideAuthRedirect(req: Request): Promise<HandlerResponse> {  
   const parsedUrl = new URL(req.url);
   const initState = parsedUrl.searchParams.get('init-state');
@@ -199,6 +213,12 @@ export async function handleServerSideAuthRedirect(req: Request): Promise<Handle
 }
 
 
+/**
+ * Exchanges an authorization code for a bearer access token.
+ *
+ * @param req - The request containing the form-encoded authorization code and optional PKCE verifier
+ * @returns The token response, or an OAuth error response for a missing code or failed PKCE verification
+ */
 export async function handleCodeExchange(req: Request): Promise<HandlerResponse> {
   
   const body = await req.text();
@@ -249,6 +269,14 @@ export async function handleCodeExchange(req: Request): Promise<HandlerResponse>
 }
 
 
+/**
+ * Validates a PKCE code verifier against its challenge.
+ *
+ * @param codeVerifier - The code verifier to validate
+ * @param codeChallenge - The expected code challenge
+ * @param codeChallengeMethod - The challenge method, either `plain` or `S256`
+ * @returns `true` if the verifier matches the challenge, `false` otherwise
+ */
 function isPKCEValid(codeVerifier: string, codeChallenge: string, codeChallengeMethod = 'S256') {
   if (codeChallengeMethod === 'plain') {
     return codeVerifier === codeChallenge;
