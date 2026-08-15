@@ -10,6 +10,13 @@ interface CODE_JWE_PAYLOAD {
 const NTL_AUTH_CLIENT_ID = process.env.NTL_AUTH_CLIENT_ID || '';
 
 
+/**
+ * Starts the OAuth authorization flow by validating request parameters and redirecting to Netlify authorization.
+ *
+ * Missing required parameters produce an OAuth error redirect when a valid redirect URI is available; otherwise, the function returns a JSON error response.
+ *
+ * @returns A redirect response to Netlify authorization or an invalid-request error response.
+ */
 export async function handleAuthStart(req: Request): Promise<HandlerResponse>{
 
   const parsedUrl = new URL(req.url);
@@ -70,6 +77,9 @@ export async function handleAuthStart(req: Request): Promise<HandlerResponse>{
 }
 
 
+/**
+ * Returns an HTML response that forwards the access token and authorization state from the URL fragment to the server-side redirect endpoint.
+ */
 export async function handleClientSideAuthExchange(){
   return {
     statusCode: 200,
@@ -122,6 +132,11 @@ export async function handleClientSideAuthExchange(){
 }
 
 
+/**
+ * Converts the initial authorization state and access token into an authorization code and redirects the client.
+ *
+ * @returns A redirect response on success or a JSON error response when the required parameters or state are invalid.
+ */
 export async function handleServerSideAuthRedirect(req: Request): Promise<HandlerResponse> {  
   const parsedUrl = new URL(req.url);
   const initState = parsedUrl.searchParams.get('init-state');
@@ -199,6 +214,12 @@ export async function handleServerSideAuthRedirect(req: Request): Promise<Handle
 }
 
 
+/**
+ * Exchanges an authorization code for an encrypted access token.
+ *
+ * @param req - The token exchange request containing the authorization code and optional PKCE verifier.
+ * @returns The token response, or an OAuth error response when the code is missing or PKCE verification fails.
+ */
 export async function handleCodeExchange(req: Request): Promise<HandlerResponse> {
   
   const body = await req.text();
@@ -249,6 +270,14 @@ export async function handleCodeExchange(req: Request): Promise<HandlerResponse>
 }
 
 
+/**
+ * Validates a PKCE code verifier against its challenge.
+ *
+ * @param codeVerifier - The verifier to validate
+ * @param codeChallenge - The expected challenge
+ * @param codeChallengeMethod - The challenge transformation method
+ * @returns `true` if the verifier matches the challenge, `false` otherwise
+ */
 function isPKCEValid(codeVerifier: string, codeChallenge: string, codeChallengeMethod = 'S256') {
   if (codeChallengeMethod === 'plain') {
     return codeVerifier === codeChallenge;
